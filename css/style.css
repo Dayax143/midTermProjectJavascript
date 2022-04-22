@@ -1,0 +1,46 @@
+body{
+    background:linear-gradient(270deg, rgb(0,80,150),rgb(130,60,0));
+}
+
+header{
+    padding-top: 3rem;
+}
+
+header h1{
+    text-align: center;
+    /* color:rgb(70, 70, 70); */
+    color: white;
+    text-shadow: 1rem 2rem 3rem rgb(108, 30, 100);
+}
+
+main{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    margin: 10rem 0rem 0rem 0rem;
+}
+
+main button{
+    padding: inherit;
+    background: linear-gradient(80deg, rgb(150,40,100),rgb(160,160,20));
+    /* background-color: red; */
+    border-style: hidden;
+    width: 5rem;
+    height: 5rem;
+    margin: 0.8rem;
+    font-size: 4rem;
+}
+
+footer{
+    text-align: center;
+    color:rgba(255,255,255,0.6);
+    padding: 1rem;
+    margin:0rem 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0.2rem 0.2rem 0.8rem 0.8rem rgba(00, 00, 00,0.6);
+    background: linear-gradient(340deg, rgba(18,20,0,0.6),rgba(0,0,60,0.6));
+    /* background:linear-gradient(90deg, rgb(0,80,150),rgb(130,60,0)); */
+    position: fixed;
+    bottom: 1rem;
+    width: 75rem;
+}
