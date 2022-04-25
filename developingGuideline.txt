@@ -7,5 +7,5 @@
 2. make the icon visible when the player touches               done...
 3. input the player sign every turn he put on the button
 4. check if there is a winner by comparing the visible signs
-5. stop the game and show results 
+5. stop the game and show results                              have done....
 
