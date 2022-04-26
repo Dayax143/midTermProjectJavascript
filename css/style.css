@@ -5,9 +5,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.header{
-    text-align: center;
-}
+
 ::selection{
   color: #fff;
   background:#56baed;
