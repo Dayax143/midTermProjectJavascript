@@ -7,6 +7,8 @@ allBox = document.querySelectorAll("section span"), /* holds the 9 buttons in th
 resultBox = document.querySelector(".result-box"), /* holds the popup when the game ends */
 wonText = resultBox.querySelector(".won-text"), /* pop-ups the the winner is .... */
 replayBtn = resultBox.querySelector("button"); /* holds replay the game button */
+
+
 window.onload = ()=>{
     for (let i = 0; i < allBox.length; i++) {
        allBox[i].setAttribute("onclick", "clickedBox(this)");
@@ -33,9 +35,11 @@ function clickedBox(element){
     if(players.classList.contains("player")){
         playerSign = "O";
         element.innerHTML = `<i class="${playerOIcon}"></i>`;
+        element.style="color:rgb(10,250,20,0.7";
         players.classList.remove("active");
         element.setAttribute("id", playerSign);
-    }else{
+    }
+    else{
         element.innerHTML = `<i class="${playerXIcon}"></i>`;
         element.setAttribute("id", playerSign);
         players.classList.add("active");
@@ -66,8 +70,10 @@ function bot(){
                 allBox[randomBox].innerHTML = `<i class="${playerXIcon}"></i>`;
                 allBox[randomBox].setAttribute("id", playerSign);
                 players.classList.add("active");
-            }else{
+            }
+            else{
                 allBox[randomBox].innerHTML = `<i class="${playerOIcon}"></i>`;
+                allBox[randomBox].style="color:rgb(10,250,20,0.7";
                 players.classList.remove("active");
                 allBox[randomBox].setAttribute("id", playerSign);
             }
@@ -77,4 +83,43 @@ function bot(){
         playBoard.style.pointerEvents = "auto";
         playerSign = "X";
     }
+}
+
+/*  */
+function getIdVal(classname){
+    return document.querySelector(".box" + classname).id; /* will add .box class before classname */
+}
+function checkIdSign(val1, val2, val3, sign){ 
+    if(getIdVal(val1) == sign && getIdVal(val2) == sign && getIdVal(val3) == sign){
+        return true;
+    }
+}
+
+
+function selectWinner(){
+    if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
+        runBot = false;
+        bot(runBot);
+        setTimeout(()=>{
+            resultBox.classList.add("show");
+            playBoard.classList.remove("show");
+        }, 700);
+        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+    }
+    else{
+        if(getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
+            runBot = false;
+            bot(runBot);
+            setTimeout(()=>{
+                resultBox.classList.add("show");
+                playBoard.classList.remove("show");
+            }, 700);
+            wonText.textContent = "Match has been drawn!";
+        }
+    }
+}
+
+/* holds replay button at the end of the game.------REMACH */
+replayBtn.onclick = ()=>{
+    window.location.reload();
 }
