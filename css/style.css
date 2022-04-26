@@ -12,6 +12,7 @@
 }
 body{
   background:#56baed;
+  text-align: center;
 }
 .select-box, .play-board, .result-box{
   position: absolute;
