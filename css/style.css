@@ -219,30 +219,31 @@ footer{
   margin-top: 20px;
 }
 .play-area section{
-  display: flex;
+  /* display: flex; */
   margin-bottom: 1px;
 }
 .play-area section span{
   display: block;
-  height: 90px;
-  width: 90px;
+  height: 7rem;
+  width: 7rem;
   margin: 2px;
   color: red;
   font-size: 40px;
-  line-height: 80px;
+  line-height: 7rem;
+  justify-content: center;
   text-align: center;
   border-radius: 5px;
   background: linear-gradient(80deg,rgba(20,40,100,0.6),rgb(10,100,130));
 }
 .result-box{
   padding: 25px 20px;
-  border-radius: 5px;
-  max-width: 400px;
+  border-radius: 0.3rem;
+  max-width: 600px;
   width: 100%;
   opacity: 0;
   text-align: center;
-  background: rgb(10, 100, 250,0.7);
-  pointer-events: none;
+  background: rgb(10, 100, 250,0.9);
+  pointer-events:none;
   transform: translate(-50%, -50%) scale(0.9);
 }
 .result-box.show{
@@ -256,10 +257,13 @@ footer{
   display: flex;
   justify-content: center;
 }
-.result-box .won-text p{
-  font-weight: 600;
-  margin: 0 5px;
+.won-text #winner{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: unset;
+  color:rgb(250,250,250,0.6);
+  transition: 0.9s;
 }
+
 .result-box .btn{
   width: 100%;
   margin-top: 25px;

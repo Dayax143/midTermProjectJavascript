@@ -53,7 +53,7 @@ function clickedBox(element){
     }, randomTimeDelay);
 }
 
-
+/* Automatic player -- by array indexs*/
 function bot(){
     let array = [];
     if(runBot){
@@ -85,7 +85,7 @@ function bot(){
     }
 }
 
-/*  */
+/* check  */
 function getIdVal(classname){
     return document.querySelector(".box" + classname).id; /* will add .box class before classname */
 }
@@ -96,6 +96,7 @@ function checkIdSign(val1, val2, val3, sign){
 }
 
 
+/* processing winning --- then asigning to player */
 function selectWinner(){
     if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
         runBot = false;
@@ -104,7 +105,13 @@ function selectWinner(){
             resultBox.classList.add("show");
             playBoard.classList.remove("show");
         }, 700);
-        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+        // wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+        if(playerSign=="X"){
+        document.getElementById("winner").textContent="Red is the winner!"
+    }
+    else{
+        document.getElementById("winner").textContent="Green is the winner !"
+    }
     }
     else{
         if(getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
@@ -114,7 +121,7 @@ function selectWinner(){
                 resultBox.classList.add("show");
                 playBoard.classList.remove("show");
             }, 700);
-            wonText.textContent = "Match has been drawn!";
+            document.getElementById("winner").textContent = "There is no winner !";
         }
     }
 }
