@@ -162,14 +162,23 @@ footer{
   position: relative;
   justify-content: space-between;
 }
-.play-board .players .Xturn{
+.play-board .players.active .Xturn{
   background-color: rgb(200, 00, 25,0.4);
-  color: red;
+  color:rgb(255, 0, 0,0.9);
+}
+.play-board .players.active .Oturn{
+  background-color: rgb(0, 150, 25,0.7);
+  color: rgb(10, 250, 0,0.9);
+}
+
+.play-board .players .Xturn{
+  /* background-color: rgb(200, 00, 25,0.4); */
+  color:rgb(255, 0, 0,0.9);  
 }
 
 .play-board .players .Oturn{
-  /* background-color: rgb(0, 250, 25,0.5); */
-  color: green;
+  /* background-color: rgb(0, 150, 25,0.7); */
+  color: rgb(10, 250, 0,0.9);
 }
 .players span{
   position: relative;
@@ -212,14 +221,12 @@ footer{
 .players.active span:nth-child(2){
   color: #fff;
 }
-.players.active .slider{
-  left: 50%;
-}
+
 .play-area{
   margin-top: 20px;
 }
 .play-area section{
-  /* display: flex; */
+  display: flex;
   margin-bottom: 1px;
 }
 .play-area section span{

@@ -22,13 +22,13 @@ selectBtnX.onclick = ()=>{
 }
 /* Select which player you will be ---- Player(O) turn */
 selectBtnO.onclick = ()=>{ 
-    selectBox.classList.add("hide");
-    playBoard.classList.add("show");
+    selectBox.classList.add("hide"); /* Hides th e first windows -- player selection */
+    playBoard.classList.add("show"); /* shows the second windows --- Active game */
     players.setAttribute("class", "players active player"); /* Added  */
 }
 let playerXIcon = "fas fa-times",
 playerOIcon = "far fa-circle",
-playerSign = "X",
+playerSign = "X"
 runBot = true;
 /* Show hide icons when clicked */
 function clickedBox(element){
