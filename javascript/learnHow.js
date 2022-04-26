@@ -2,7 +2,7 @@ const selectBox = document.querySelector(".select-box"), /* first box contains w
 selectBtnX = selectBox.querySelector(".options .playerX"),
 selectBtnO = selectBox.querySelector(".options .playerO"),
 playBoard = document.querySelector(".play-board"),/*<!-- holds the window appears when the game active-->*/
-players = document.querySelector(".players"), 
+players = document.querySelector(".players"),
 allBox = document.querySelectorAll("section span"), /* holds the 9 buttons in the active game */
 resultBox = document.querySelector(".result-box"), /* holds the popup when the game ends */
 wonText = resultBox.querySelector(".won-text"), /* pop-ups the the winner is .... */
@@ -11,7 +11,7 @@ replayBtn = resultBox.querySelector("button"); /* holds replay the game button *
 
 window.onload = ()=>{
     for (let i = 0; i < allBox.length; i++) {
-       allBox[i].setAttribute("onclick", "clickedBox(this)");
+       allBox[i].setAttribute("onclick", "clickedBox(this)","player2clicked(this)");
     }
 }
 
@@ -24,34 +24,51 @@ selectBtnX.onclick = ()=>{
 selectBtnO.onclick = ()=>{ 
     selectBox.classList.add("hide"); /* Hides th e first windows -- player selection */
     playBoard.classList.add("show"); /* shows the second windows --- Active game */
-    players.setAttribute("class", "players active player"); /* Added  */
+    players.setAttribute("class", "players active player1"); /* Added  */
 }
 let playerXIcon = "fas fa-times",
 playerOIcon = "far fa-circle",
-playerSign = "X"
+player1Sign = "X"
+player2Sign ="O"
 // runBot = true;
 /* Show hide icons when clicked */
 function clickedBox(element){
-    if(players.classList.contains("player")){
-        playerSign = "O";
+    if(players.classList.contains("player1")){
+        player1Sign = "O";
         element.innerHTML = `<i class="${playerOIcon}"></i>`;
         element.style="color:rgb(10,250,20,0.7";
         players.classList.remove("active");
-        element.setAttribute("id", playerSign);
+        element.setAttribute("id", player1Sign);
     }
     else{
         element.innerHTML = `<i class="${playerXIcon}"></i>`;
-        element.setAttribute("id", playerSign);
+        element.setAttribute("id", player1Sign);
         players.classList.add("active");
     }
-    selectWinner();
-    element.style.pointerEvents = "none";
-    playBoard.style.pointerEvents = "none";
-    let randomTimeDelay = ((Math.random() * 1000) + 200).toFixed();
-    setTimeout(()=>{
-        bot(runBot);
-    }, randomTimeDelay);
 }
+    /* trying to add second player --- live player */
+function player2clicked(element){
+    if(players.classList.contains("player2")){
+        player2Sign = "O";
+        element.innerHTML = `<i class="${playerXIcon}"></i>`;
+        element.style="color:rgb(10,250,20,0.7";
+        players.classList.remove("active");
+        element.setAttribute("id", player2Sign);
+    }
+    else{
+        element.innerHTML = `<i class="${playerXIcon}"></i>`;
+        element.setAttribute("id", player2Sign);
+        players.classList.add("active");
+    }
+}
+//     selectWinner();
+//     element.style.pointerEvents = "none";
+//     playBoard.style.pointerEvents = "none";
+//     let randomTimeDelay = ((Math.random() * 1000) + 200).toFixed();
+//     setTimeout(()=>{
+//         bot(runBot);
+//     }, randomTimeDelay);
+// }
 
 /* Automatic player -- by array indexs*/
 // function bot(){
