@@ -6,20 +6,20 @@ let fourText= document.getElementById('four').textContent
 let fiveText= document.getElementById('five').textContent
 
 
-function compareToWin(){
-    // let win=oneText + twoText
-    if(oneText===twoText===fourText){
-        alert("your are the winner")
-    }
-    else{
-        alert("you lose")
-    }
-}
+// function compareToWin(){
+//     // let win=oneText + twoText
+//     if(oneText===twoText===fourText){
+//         alert("your are the winner")
+//     }
+//     else{
+//         alert("you lose")
+//     }
+// }
 
-function changeIconText(){
-    let clickedto=document.getElementsByTagName("p")
-    iconButton.textContent='p'
-}
+// function changeIconText(){
+//     let clickedto=document.getElementsByTagName("p")
+//     iconButton.textContent='p'
+// }
 
 
 // on click selection
