@@ -1,30 +1,34 @@
-const selectBox = document.querySelector(".select-box"),
+const selectBox = document.querySelector(".select-box"), /* first box contains wich player to select*/
 selectBtnX = selectBox.querySelector(".options .playerX"),
 selectBtnO = selectBox.querySelector(".options .playerO"),
-playBoard = document.querySelector(".play-board"),
-players = document.querySelector(".players"),
-allBox = document.querySelectorAll("section span"),
-resultBox = document.querySelector(".result-box"),
-wonText = resultBox.querySelector(".won-text"),
-replayBtn = resultBox.querySelector("button");
+playBoard = document.querySelector(".play-board"),/*<!-- holds the window appears when the game active-->*/
+players = document.querySelector(".players"), 
+allBox = document.querySelectorAll("section span"), /* holds the 9 buttons in the active game */
+resultBox = document.querySelector(".result-box"), /* holds the popup when the game ends */
+wonText = resultBox.querySelector(".won-text"), /* pop-ups the the winner is .... */
+replayBtn = resultBox.querySelector("button"); /* holds replay the game button */
 window.onload = ()=>{
     for (let i = 0; i < allBox.length; i++) {
        allBox[i].setAttribute("onclick", "clickedBox(this)");
     }
 }
-selectBtnX.onclick = ()=>{
+
+/* Select which player you will be ---- Player(X) turn */
+selectBtnX.onclick = ()=>{ 
     selectBox.classList.add("hide");
     playBoard.classList.add("show");
 }
+/* Select which player you will be ---- Player(O) turn */
 selectBtnO.onclick = ()=>{ 
     selectBox.classList.add("hide");
     playBoard.classList.add("show");
-    players.setAttribute("class", "players active player");
+    players.setAttribute("class", "players active player"); /* Added  */
 }
 let playerXIcon = "fas fa-times",
 playerOIcon = "far fa-circle",
 playerSign = "X",
 runBot = true;
+/* Show hide icons when clicked */
 function clickedBox(element){
     if(players.classList.contains("player")){
         playerSign = "O";
@@ -44,6 +48,8 @@ function clickedBox(element){
         bot(runBot);
     }, randomTimeDelay);
 }
+
+
 function bot(){
     let array = [];
     if(runBot){
@@ -71,36 +77,4 @@ function bot(){
         playBoard.style.pointerEvents = "auto";
         playerSign = "X";
     }
-}
-function getIdVal(classname){
-    return document.querySelector(".box" + classname).id;
-}
-function checkIdSign(val1, val2, val3, sign){ 
-    if(getIdVal(val1) == sign && getIdVal(val2) == sign && getIdVal(val3) == sign){
-        return true;
-    }
-}
-function selectWinner(){
-    if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
-        runBot = false;
-        bot(runBot);
-        setTimeout(()=>{
-            resultBox.classList.add("show");
-            playBoard.classList.remove("show");
-        }, 700);
-        wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
-    }else{
-        if(getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
-            runBot = false;
-            bot(runBot);
-            setTimeout(()=>{
-                resultBox.classList.add("show");
-                playBoard.classList.remove("show");
-            }, 700);
-            wonText.textContent = "Match has been drawn!";
-        }
-    }
-}
-replayBtn.onclick = ()=>{
-    window.location.reload();
 }

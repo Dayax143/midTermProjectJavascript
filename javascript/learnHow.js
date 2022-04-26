@@ -12,10 +12,13 @@ window.onload = ()=>{
        allBox[i].setAttribute("onclick", "clickedBox(this)");
     }
 }
-selectBtnX.onclick = ()=>{
+
+/* Show hide icons when clicked ---- Player(X) turn */
+selectBtnX.onclick = ()=>{ 
     selectBox.classList.add("hide");
     playBoard.classList.add("show");
 }
+/* Show hide icons when clicked ---- Player(O) turn */
 selectBtnO.onclick = ()=>{ 
     selectBox.classList.add("hide");
     playBoard.classList.add("show");
@@ -25,6 +28,7 @@ let playerXIcon = "fas fa-times",
 playerOIcon = "far fa-circle",
 playerSign = "X",
 runBot = true;
+/* Show hide icons when clicked */
 function clickedBox(element){
     if(players.classList.contains("player")){
         playerSign = "O";
