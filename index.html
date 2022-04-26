@@ -1,38 +1,63 @@
 <!DOCTYPE html>
+<!-- Created By CodingNepal - www.youtube.com/codingnepal || www.codingnepalweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIC TAC Game</title>
-
+    <title>Tic Tac Toe Game | jacfar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <header>
         <h1>Hi this is my own game made by one day 23.april.2022m</h1>
+        <h1> abdikariim xaamud  maxamed</h1>
     </header>
-    <main>
-        <div id="uperline">
-            <button id="one" onclick="compareToWin()">o</button>
-            <button id="two" onclick="compareToWin()">o</button>
-            <button id="three" onclick="compareToWin()">o</button>
-        </div>
-        <div id='mideline'>            
-            <button id="four">x</button>
-            <button id="five">x</button>
-            <button id="six">x</button>
-        </div>
-        <div id="lowerline">            
-            <button id="seven" onclick="compareToWin()">x</button>
-            <button id="eight">x</button>
-            <button id="nine">o</button>
-        </div>
-    </main>
-    <footer>
-        &copy; Dayax Tech_center
-    </footer>
-    <script src="JavaScript/animationEffects.js"></script>
-    <script src="javascript/learnHow.js"></script>
+  <!-- select box -->
+  <div class="select-box">
+    <div class="content">
+      <div class="title">Select which you want to Be : </div>
+      <div class="options">
+        <button class="playerX">Player (j)</button>
+        <button class="playerO">Player (X)turn)</button>
+      </div>
+    </div>
+  </div> 
+  <!-- playboard section -->
+  <div class="play-board">
+    <div class="details">
+      <div class="players">
+        <span class="Xturn">j's Turn</span>
+        <span class="Oturn">Xturn's Turn</span>
+        <div class="slider"></div>
+      </div>
+    </div>
+    <div class="play-area">
+      <section>
+        <span class="box1"></span>
+        <span class="box2"></span>
+        <span class="box3"></span>
+      </section>
+      <section>
+        <span class="box4"></span>
+        <span class="box5"></span>
+        <span class="box6"></span>
+      </section>
+      <section>
+        <span class="box7"></span>
+        <span class="box8"></span>
+        <span class="box9"></span>
+      </section>
+    </div>
+  </div>
+  <!-- result box -->
+  <div class="result-box">
+    <div class="won-text"></div>
+    <div class="btn"><button>Replay</button></div>
+  </div>
+  <footer>
+    &copy; Dayax Tech_center
+</footer>
+  <script src="javascript/animationEffects.js"></script>
 </body>
-</html>
+</html
